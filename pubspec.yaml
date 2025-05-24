@@ -1,0 +1,60 @@
+name: toko_kita
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  firebase_core: ^3.13.0
+  firebase_auth: ^5.5.3
+  cloud_firestore: ^5.6.7
+  google_sign_in: ^6.3.0
+  flutter_bloc: ^9.1.1
+  get_it: ^8.0.3
+  bloc: ^9.0.0
+  shared_preferences: ^2.5.3
+  intl: ^0.20.2
+  go_router: ^15.1.2
+  flutter_svg: ^2.1.0
+  connectivity_plus: ^6.1.4
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.9.0
+  dartz: ^0.10.1
+  loading_animation_widget: ^1.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.6
+  freezed: ^2.4.5
+  json_serializable: ^6.7.1
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/svg/
+    - assets/image/
+    - assets/gif/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/font/Poppins-Black.ttf
+        - asset: assets/font/Poppins-Bold.ttf
+        - asset: assets/font/Poppins-ExtraBold.ttf
+        - asset: assets/font/Poppins-Italic.ttf
+        - asset: assets/font/Poppins-Light.ttf
+        - asset: assets/font/Poppins-Medium.ttf
+        - asset: assets/font/Poppins-Regular.ttf
+        - asset: assets/font/Poppins-SemiBold.ttf
+
