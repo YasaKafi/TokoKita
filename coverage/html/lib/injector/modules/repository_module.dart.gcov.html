@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryLo">53.3&nbsp;%</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
             <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">0</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-05-27 06:28:47</td>
+            <td class="headerValue">2025-05-27 08:04:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -79,25 +79,25 @@
 <span id="L17"><span class="lineNum">      17</span>              : class RepositoryModule {</span>
 <span id="L18"><span class="lineNum">      18</span> <span class="tlaUNC">           0 :   RepositoryModule._();</span></span>
 <span id="L19"><span class="lineNum">      19</span>              : </span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :   static void init() {</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           1 :     final injector = Injector.instance;</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaUNC">           0 :   static void init() {</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaUNC">           0 :     final injector = Injector.instance;</span></span>
 <span id="L22"><span class="lineNum">      22</span>              : </span>
 <span id="L23"><span class="lineNum">      23</span>              :     injector</span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :         ..registerLazySingleton&lt;AuthRepository&gt;(</span></span>
-<span id="L25"><span class="lineNum">      25</span> <span class="tlaGNC">           2 :       () =&gt; AuthRepositoryImpl(remoteDataSource: injector&lt;AuthDatasource&gt;())</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaUNC">           0 :         ..registerLazySingleton&lt;AuthRepository&gt;(</span></span>
+<span id="L25"><span class="lineNum">      25</span> <span class="tlaUNC">           0 :       () =&gt; AuthRepositoryImpl(remoteDataSource: injector&lt;AuthDatasource&gt;())</span></span>
 <span id="L26"><span class="lineNum">      26</span>              :     )</span>
 <span id="L27"><span class="lineNum">      27</span>              : </span>
-<span id="L28"><span class="lineNum">      28</span> <span class="tlaGNC">           1 :     ..registerLazySingleton&lt;ProductRepository&gt;(</span></span>
+<span id="L28"><span class="lineNum">      28</span> <span class="tlaUNC">           0 :     ..registerLazySingleton&lt;ProductRepository&gt;(</span></span>
 <span id="L29"><span class="lineNum">      29</span> <span class="tlaUNC">           0 :       () =&gt; ProductRepositoryImpl(remoteDataSource: injector&lt;ProductDatasource&gt;()),</span></span>
 <span id="L30"><span class="lineNum">      30</span>              :     )</span>
 <span id="L31"><span class="lineNum">      31</span>              : </span>
-<span id="L32"><span class="lineNum">      32</span> <span class="tlaGNC">           1 :     ..registerLazySingleton&lt;PurchaseRepository&gt;(</span></span>
+<span id="L32"><span class="lineNum">      32</span> <span class="tlaUNC">           0 :     ..registerLazySingleton&lt;PurchaseRepository&gt;(</span></span>
 <span id="L33"><span class="lineNum">      33</span> <span class="tlaUNC">           0 :       () =&gt; PurchaseRepositoryImpl(remoteDataSource: injector&lt;PurchaseDatasource&gt;()),</span></span>
 <span id="L34"><span class="lineNum">      34</span>              :     )</span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           1 :       ..registerLazySingleton&lt;SaleRepository&gt;(</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaUNC">           0 :       ..registerLazySingleton&lt;SaleRepository&gt;(</span></span>
 <span id="L36"><span class="lineNum">      36</span> <span class="tlaUNC">           0 :       () =&gt; SaleRepositoryImpl(remoteDatasource: injector&lt;SaleDatasource&gt;()),</span></span>
 <span id="L37"><span class="lineNum">      37</span>              :     )</span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           1 :       ..registerLazySingleton&lt;ReportRepository&gt;(</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaUNC">           0 :       ..registerLazySingleton&lt;ReportRepository&gt;(</span></span>
 <span id="L39"><span class="lineNum">      39</span> <span class="tlaUNC">           0 :       () =&gt; ReportRepositoryImpl(</span></span>
 <span id="L40"><span class="lineNum">      40</span> <span class="tlaUNC">           0 :         purchaseDatasource: injector&lt;PurchaseDatasource&gt;(),</span></span>
 <span id="L41"><span class="lineNum">      41</span> <span class="tlaUNC">           0 :         saleDatasource: injector&lt;SaleDatasource&gt;(),</span></span>

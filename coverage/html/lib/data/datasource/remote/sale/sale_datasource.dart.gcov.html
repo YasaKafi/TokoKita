@@ -31,13 +31,13 @@
             <td class="headerValue">lcov.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntryHi">90.9&nbsp;%</td>
+            <td class="headerCovTableEntryLo">0.0&nbsp;%</td>
             <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">0</td>
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-05-27 06:28:47</td>
+            <td class="headerValue">2025-05-27 08:04:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -69,20 +69,20 @@
 <span id="L7"><span class="lineNum">       7</span>              :   final String _collection = 'sales';</span>
 <span id="L8"><span class="lineNum">       8</span>              : </span>
 <span id="L9"><span class="lineNum">       9</span>              :   // Tambahkan constructor dengan parameter opsional untuk testing</span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           1 :   SaleDatasource({FirebaseFirestore? firestore})</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaUNC">           0 :   SaleDatasource({FirebaseFirestore? firestore})</span></span>
 <span id="L11"><span class="lineNum">      11</span> <span class="tlaUNC">           0 :       : _firestore = firestore ?? FirebaseFirestore.instance;</span></span>
 <span id="L12"><span class="lineNum">      12</span>              : </span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :   Future&lt;void&gt; addSale(SaleModel sale) async {</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           4 :     final doc = _firestore.collection(_collection).doc();</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :     await doc.set(sale.copyWith(id: doc.id).toJson());</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaUNC">           0 :   Future&lt;void&gt; addSale(SaleModel sale) async {</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaUNC">           0 :     final doc = _firestore.collection(_collection).doc();</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaUNC">           0 :     await doc.set(sale.copyWith(id: doc.id).toJson());</span></span>
 <span id="L16"><span class="lineNum">      16</span>              :   }</span>
 <span id="L17"><span class="lineNum">      17</span>              : </span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           1 :   Future&lt;List&lt;SaleModel&gt;&gt; getAllSales() async {</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           4 :     final snapshot = await _firestore.collection(_collection).get();</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           3 :     return snapshot.docs.map((doc) {</span></span>
-<span id="L21"><span class="lineNum">      21</span> <span class="tlaGNC">           1 :       final data = doc.data()!;</span></span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           1 :       return SaleModel.fromJson(data).copyWith(id: doc.id);</span></span>
-<span id="L23"><span class="lineNum">      23</span> <span class="tlaGNC">           1 :     }).toList();</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaUNC">           0 :   Future&lt;List&lt;SaleModel&gt;&gt; getAllSales() async {</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaUNC">           0 :     final snapshot = await _firestore.collection(_collection).get();</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaUNC">           0 :     return snapshot.docs.map((doc) {</span></span>
+<span id="L21"><span class="lineNum">      21</span> <span class="tlaUNC">           0 :       final data = doc.data()!;</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaUNC">           0 :       return SaleModel.fromJson(data).copyWith(id: doc.id);</span></span>
+<span id="L23"><span class="lineNum">      23</span> <span class="tlaUNC">           0 :     }).toList();</span></span>
 <span id="L24"><span class="lineNum">      24</span>              :   }</span>
 <span id="L25"><span class="lineNum">      25</span>              : }</span>
         </pre>

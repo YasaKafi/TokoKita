@@ -102,4 +102,29 @@ class PurchaseDatasource {
 
     return totalHPP;
   }
+
+  Future<void> updatePurchaseBatch(String productId, List<Map<String, dynamic>> updatedBatches) async {
+    for (final batch in updatedBatches) {
+      await _firestore.collection(_collection).doc(batch['id']).update({
+        'quantity': batch['quantity'],
+        'originalQuantity': batch['originalQuantity'],
+      });
+    }
+  }
+
+  Future<void> savePurchaseBatch({
+    required String productId,
+    required int quantity,
+    required int purchasePrice,
+  }) async {
+    final doc = _firestore.collection(_collection).doc();
+    await doc.set({
+      'id': doc.id,
+      'productId': productId,
+      'quantity': quantity,
+      'originalQuantity': quantity,
+      'purchasePrice': purchasePrice,
+      'purchaseDate': FieldValue.serverTimestamp(),
+    });
+  }
 }

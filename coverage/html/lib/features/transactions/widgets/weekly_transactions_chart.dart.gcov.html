@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2025-05-27 06:28:47</td>
+            <td class="headerValue">2025-05-27 08:04:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryHi">-</td>
@@ -65,43 +65,43 @@
 <span id="L3"><span class="lineNum">       3</span>              : import '../../../utils/theme.dart';</span>
 <span id="L4"><span class="lineNum">       4</span>              : </span>
 <span id="L5"><span class="lineNum">       5</span>              : class WeeklyTransactionChart extends StatelessWidget {</span>
-<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">          30 :   const WeeklyTransactionChart({super.key});</span></span>
+<span id="L6"><span class="lineNum">       6</span> <span class="tlaGNC">           1 :   const WeeklyTransactionChart({super.key});</span></span>
 <span id="L7"><span class="lineNum">       7</span>              : </span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           3 :   @override</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">           1 :   @override</span></span>
 <span id="L9"><span class="lineNum">       9</span>              :   Widget build(BuildContext context) {</span>
-<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           3 :     return SizedBox(</span></span>
+<span id="L10"><span class="lineNum">      10</span> <span class="tlaGNC">           1 :     return SizedBox(</span></span>
 <span id="L11"><span class="lineNum">      11</span>              :       height: 160,</span>
-<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           3 :       child: BarChart(</span></span>
-<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           3 :         BarChartData(</span></span>
-<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           3 :           barTouchData: BarTouchData(enabled: false),</span></span>
-<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           3 :           titlesData: FlTitlesData(</span></span>
-<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           6 :             leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),</span></span>
-<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           6 :             rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),</span></span>
-<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           6 :             topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),</span></span>
-<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           3 :             bottomTitles: AxisTitles(</span></span>
-<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           3 :               sideTitles: SideTitles(</span></span>
+<span id="L12"><span class="lineNum">      12</span> <span class="tlaGNC">           1 :       child: BarChart(</span></span>
+<span id="L13"><span class="lineNum">      13</span> <span class="tlaGNC">           1 :         BarChartData(</span></span>
+<span id="L14"><span class="lineNum">      14</span> <span class="tlaGNC">           1 :           barTouchData: BarTouchData(enabled: false),</span></span>
+<span id="L15"><span class="lineNum">      15</span> <span class="tlaGNC">           1 :           titlesData: FlTitlesData(</span></span>
+<span id="L16"><span class="lineNum">      16</span> <span class="tlaGNC">           2 :             leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),</span></span>
+<span id="L17"><span class="lineNum">      17</span> <span class="tlaGNC">           2 :             rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),</span></span>
+<span id="L18"><span class="lineNum">      18</span> <span class="tlaGNC">           2 :             topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),</span></span>
+<span id="L19"><span class="lineNum">      19</span> <span class="tlaGNC">           1 :             bottomTitles: AxisTitles(</span></span>
+<span id="L20"><span class="lineNum">      20</span> <span class="tlaGNC">           1 :               sideTitles: SideTitles(</span></span>
 <span id="L21"><span class="lineNum">      21</span>              :                 showTitles: true,</span>
-<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           3 :                 getTitlesWidget: (value, meta) {</span></span>
+<span id="L22"><span class="lineNum">      22</span> <span class="tlaGNC">           1 :                 getTitlesWidget: (value, meta) {</span></span>
 <span id="L23"><span class="lineNum">      23</span>              :                   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];</span>
-<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           3 :                   return Padding(</span></span>
+<span id="L24"><span class="lineNum">      24</span> <span class="tlaGNC">           1 :                   return Padding(</span></span>
 <span id="L25"><span class="lineNum">      25</span>              :                     padding: const EdgeInsets.only(top: 4),</span>
-<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           9 :                     child: Text(days[value.toInt()], style: const TextStyle(fontSize: 10)),</span></span>
+<span id="L26"><span class="lineNum">      26</span> <span class="tlaGNC">           3 :                     child: Text(days[value.toInt()], style: const TextStyle(fontSize: 10)),</span></span>
 <span id="L27"><span class="lineNum">      27</span>              :                   );</span>
 <span id="L28"><span class="lineNum">      28</span>              :                 },</span>
 <span id="L29"><span class="lineNum">      29</span>              :                 reservedSize: 32,</span>
 <span id="L30"><span class="lineNum">      30</span>              :               ),</span>
 <span id="L31"><span class="lineNum">      31</span>              :             ),</span>
 <span id="L32"><span class="lineNum">      32</span>              :           ),</span>
-<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">           3 :           borderData: FlBorderData(show: false),</span></span>
-<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           3 :           gridData: FlGridData(show: false),</span></span>
-<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           6 :           barGroups: List.generate(7, (index) {</span></span>
-<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           3 :             return BarChartGroupData(</span></span>
+<span id="L33"><span class="lineNum">      33</span> <span class="tlaGNC">           1 :           borderData: FlBorderData(show: false),</span></span>
+<span id="L34"><span class="lineNum">      34</span> <span class="tlaGNC">           1 :           gridData: FlGridData(show: false),</span></span>
+<span id="L35"><span class="lineNum">      35</span> <span class="tlaGNC">           2 :           barGroups: List.generate(7, (index) {</span></span>
+<span id="L36"><span class="lineNum">      36</span> <span class="tlaGNC">           1 :             return BarChartGroupData(</span></span>
 <span id="L37"><span class="lineNum">      37</span>              :               x: index,</span>
-<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           3 :               barRods: [</span></span>
-<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           3 :                 BarChartRodData(</span></span>
+<span id="L38"><span class="lineNum">      38</span> <span class="tlaGNC">           1 :               barRods: [</span></span>
+<span id="L39"><span class="lineNum">      39</span> <span class="tlaGNC">           1 :                 BarChartRodData(</span></span>
 <span id="L40"><span class="lineNum">      40</span>              :                   toY: 8,</span>
 <span id="L41"><span class="lineNum">      41</span>              :                   width: 16,</span>
-<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           3 :                   borderRadius: BorderRadius.circular(4),</span></span>
+<span id="L42"><span class="lineNum">      42</span> <span class="tlaGNC">           1 :                   borderRadius: BorderRadius.circular(4),</span></span>
 <span id="L43"><span class="lineNum">      43</span>              :                   color: lightGrey,</span>
 <span id="L44"><span class="lineNum">      44</span>              :                 ),</span>
 <span id="L45"><span class="lineNum">      45</span>              :               ],</span>
