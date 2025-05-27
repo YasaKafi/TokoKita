@@ -168,7 +168,7 @@ class _FilterDropdownState extends State<_FilterDropdown> {
             DropdownMenuItem(value: '6 Month', child: Text('6 Month')),
             DropdownMenuItem(value: '1 Year', child: Text('1 Year')),
           ],
-          onChanged: _onFilterChanged,
+          onChanged: null,
         ),
       ),
     );

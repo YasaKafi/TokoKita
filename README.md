@@ -26,6 +26,9 @@ Jalankan aplikasi: flutter run
 Email untuk login: admintokokita@gmail.com 
 Password: admin1234
 
+alternatif email: admin@gmail.com
+alternatif Password: admin1234
+
 
 ✅ Menjalankan Test
 Untuk menjalankan unit test (jika tersedia): flutter test

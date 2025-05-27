@@ -36,13 +36,13 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 16),
               Row(
                 children: const [
-                  Expanded(child: SummaryCard(title: 'Total Sales', value: '\$1,250')),
+                  Expanded(child: SummaryCard(title: 'Total Sales', value: 'Dummy')),
                   SizedBox(width: 12),
-                  Expanded(child: SummaryCard(title: 'Total Purchases', value: '\$800')),
+                  Expanded(child: SummaryCard(title: 'Total Purchases', value: 'Dummy')),
                 ],
               ),
               const SizedBox(height: 12),
-              const SummaryCard(title: 'Gross Profit', value: '\$450'),
+              const SummaryCard(title: 'Gross Profit', value: 'Dummy'),
               const SizedBox(height: 24),
               Wrap(
                 spacing: 12,
