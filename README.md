@@ -22,6 +22,9 @@ Install dependencies:  flutter pub get
 
 Jalankan aplikasi: flutter run
 
+Atau bisa donwload apk  di Releases
+
+
 
 Email untuk login: admintokokita@gmail.com 
 Password: admin1234
