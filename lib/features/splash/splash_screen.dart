@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
 import 'package:go_router/go_router.dart';
@@ -35,17 +36,15 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
 
 
   void _checkAuthStatus() async {
-    await Future.delayed(const Duration(seconds: 4)).then((_) async {
-      // final token = await getToken(); // Assuming getToken() is a function that retrieves the token
+    await Future.delayed(const Duration(seconds: 4));
+    if (!mounted) return;
 
-      _router.goNamed('login'); // Navigate to login page after 3 seconds
-
-      // if (token != null) {
-      //   _router.goNamed('home'); // Navigate to home page if token exists
-      // } else {
-      //   _router.goNamed('login'); // Navigate to login page if no token
-      // }
-    });
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      _router.goNamed('navbar', pathParameters: {'pageIndex': '0'});
+    } else {
+      _router.goNamed('login');
+    }
   }
 
   @override

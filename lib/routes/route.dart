@@ -13,7 +13,7 @@ import '../widgets/bottom_navbar.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: '/navbar/0',
+    initialLocation: '/splash',
     debugLogDiagnostics: true,
     routes: [
       GoRoute(

@@ -54,20 +54,8 @@ class HomePage extends StatelessWidget {
                   ActionButton(icon: Icons.history, label: 'Transaction History'),
                 ],
               ),
-              const SizedBox(height: 32),
-              const Text("Today's Sales Performance", style: txtSecondaryHeader),
-              const SizedBox(height: 8),
-              Row(
-                children: [
-                   Text('\$1,250', style: txtPrimaryTitle),
-                  const SizedBox(width: 12),
-                  const Text('Today ', style: txtSecondarySubTitle),
-                  const Text('+15%', style: TextStyle(color: greenMedium, fontWeight: FontWeight.bold)),
-                ],
-              ),
-              const SizedBox(height: 16),
-              const SalesChart(),
-              const SizedBox(height: 32),
+
+
             ],
           ),
         ),
