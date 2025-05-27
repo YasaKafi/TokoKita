@@ -12,11 +12,11 @@ const Color pinkLight = Color(0xFFFF7CA3);
 const Color grey = Color(0xFFD9D9D9);
 const Color lightGrey = Color(0xFFF5F6F7);
 const Color errorColor = Color(0xFFE3422B);
-const Color primaryColor = Color(0xFF1A7DE5);
+const Color primaryColor = Color(0xFF228FB8);
 const Color secondaryColor = Color(0xFF638782);
 const Color navyColor = Color(0xFF324A59);
-const Color primaryColor10 = Color(0x1A1A7DE5);
-const Color primaryColor80 = Color(0xCC1A7DE5);
+const Color primaryColor10 = Color(0x1A228FB8);
+const Color primaryColor80 = Color(0xCC228FB8);
 const Color primaryColor2 = Color(0xFFFEF3DA);
 const Color blackColor = Color(0xFF0F0F0F);
 const Color transparent30 = Color.fromRGBO(0, 0, 0, 0.3);
@@ -33,13 +33,6 @@ const Color greytxtNote = Color(0xFFABB3BD);
 const Color bgSplash = Color(0xFF228FB8);
 
 
-
-// ********** UPDATE SYSTEM **********
-void deviceOrientation() {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
-}
 
 // ********** UPDATE TEXT STYLE  **********
 
