@@ -74,9 +74,7 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> with Si
 
   @override
   Widget build(BuildContext context) {
-    
-    print('Sabun : ${getProductUnit(context, '3HRDkDxOcJIdF9GqtZEW')}');
-    
+
     return Scaffold(
       backgroundColor: baseColor,
       appBar: AppBar(
@@ -115,8 +113,9 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> with Si
                   itemBuilder: (context, index) {
                     final data = sales[index];
                     return TransactionItem(
-                      date: DateFormat('yyyy-MM-dd').format(data.saleDate),
-                      total: NumberFormat.currency(locale: 'id', symbol: 'Rp').format(data.quantity * data.sellingPrice),                      name: data.productName,
+                      date: DateFormat('dd MMM yyyy | HH:mm').format(data.saleDate),
+                      total: NumberFormat.currency(locale: 'id', symbol: 'Rp', decimalDigits: 0).format((data.quantity * data.sellingPrice)),
+                      name: data.productName,
                       unitPrice: 'Rp${data.sellingPrice}/${getProductUnit(context, data.productId) ?? 'unit'}',
                       quantity: data.quantity,
                     );
@@ -137,8 +136,8 @@ class _TransactionHistoryPageState extends State<TransactionHistoryPage> with Si
                   itemBuilder: (context, index) {
                     final data = purchases[index];
                     return TransactionItem(
-                      date: DateFormat('yyyy-MM-dd').format(data.purchaseDate),
-                      total: NumberFormat.currency(locale: 'id', symbol: 'Rp').format(data.originalQuantity * data.purchasePrice),                      name: data.productName,
+                      date: DateFormat('dd MMM yyyy | HH:mm').format(data.purchaseDate),
+                      total: NumberFormat.currency(locale: 'id', symbol: 'Rp', decimalDigits: 0).format(data.originalQuantity * data.purchasePrice),                      name: data.productName,
                       unitPrice: 'Rp${data.purchasePrice}/${getProductUnit(context, data.productId) ?? 'unit'}',
                       quantity: data.originalQuantity,
                     );

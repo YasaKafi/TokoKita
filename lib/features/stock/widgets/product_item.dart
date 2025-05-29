@@ -6,7 +6,6 @@ class ProductItem extends StatelessWidget {
   final String name;
   final int stock;
   final String unit;
-  final int price;
   final VoidCallback? onPressedUpdate;
   final VoidCallback? onPressedDelete;
 
@@ -16,7 +15,6 @@ class ProductItem extends StatelessWidget {
     required this.name,
     required this.stock,
     required this.unit,
-    required this.price,
     this.onPressedUpdate,
     this.onPressedDelete,
   });
@@ -36,7 +34,6 @@ class ProductItem extends StatelessWidget {
                 const SizedBox(height: 4),
                 Text('Current Stock: $stock', style: txtSecondarySubTitle.copyWith(color: secondaryColor)),
                 Text('Unit: $unit', style: txtSecondarySubTitle.copyWith(color: secondaryColor)),
-                Text('Price: $price', style: txtSecondarySubTitle.copyWith(color: secondaryColor)),
               ],
             ),
           ),

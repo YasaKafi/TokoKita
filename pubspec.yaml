@@ -34,6 +34,8 @@ dependencies:
   bloc_test: ^10.0.0
   firebase_auth_mocks: ^0.14.1
   mocktail: ^1.0.4
+  data_table_2: ^2.6.0
+  dropdown_search: ^6.0.2
 
 
 dev_dependencies:

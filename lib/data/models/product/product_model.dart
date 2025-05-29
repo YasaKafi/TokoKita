@@ -9,7 +9,6 @@ class ProductModel with _$ProductModel {
     String? id,
     required String name,
     required String unit,
-    required int sellingPrice,
     required DateTime entryDate,
   }) = _ProductModel;
 

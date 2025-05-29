@@ -5,8 +5,9 @@ import '../../../utils/theme.dart';
 class ActionButton extends StatelessWidget {
   final IconData icon;
   final String label;
+  final VoidCallback? onPressed;
 
-  const ActionButton({super.key, required this.icon, required this.label});
+  const ActionButton({super.key, required this.icon, required this.label, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class ActionButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
           ),
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Icon(icon, color: blackColor, size: 24),
           label: Text(
             label,

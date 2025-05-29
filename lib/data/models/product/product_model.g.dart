@@ -11,7 +11,6 @@ _$ProductModelImpl _$$ProductModelImplFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String?,
       name: json['name'] as String,
       unit: json['unit'] as String,
-      sellingPrice: (json['sellingPrice'] as num).toInt(),
       entryDate: DateTime.parse(json['entryDate'] as String),
     );
 
@@ -20,6 +19,5 @@ Map<String, dynamic> _$$ProductModelImplToJson(_$ProductModelImpl instance) =>
       'id': instance.id,
       'name': instance.name,
       'unit': instance.unit,
-      'sellingPrice': instance.sellingPrice,
       'entryDate': instance.entryDate.toIso8601String(),
     };

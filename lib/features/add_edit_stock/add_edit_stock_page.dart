@@ -14,8 +14,9 @@ import '../stock/bloc/stock_bloc.dart';
 
 class AddEditStockPage extends StatefulWidget {
   final ProductModel? product;
+  final bool? isFromPurchase;
 
-  const AddEditStockPage({super.key, this.product});
+  const AddEditStockPage({super.key, this.product, this.isFromPurchase});
 
   @override
   State<AddEditStockPage> createState() => _AddEditStockPageState();
@@ -23,8 +24,6 @@ class AddEditStockPage extends StatefulWidget {
 
 class _AddEditStockPageState extends State<AddEditStockPage> {
   late final TextEditingController itemNameController;
-  late final TextEditingController priceController;
-  late final TextEditingController quantityController;
   late final TextEditingController dateController;
 
   String selectedUnit = 'Pcs';
@@ -35,8 +34,6 @@ class _AddEditStockPageState extends State<AddEditStockPage> {
     super.initState();
     final product = widget.product;
     itemNameController = TextEditingController(text: product?.name ?? '');
-    priceController = TextEditingController(
-        text: product != null ? product.sellingPrice.toString() : '');
     dateController = TextEditingController(
         text: product != null
             ? DateFormat('dd/MM/yyyy').format(product.entryDate)
@@ -47,21 +44,15 @@ class _AddEditStockPageState extends State<AddEditStockPage> {
   @override
   void dispose() {
     itemNameController.dispose();
-    priceController.dispose();
-    quantityController.dispose();
     dateController.dispose();
     super.dispose();
   }
 
   void _submit() {
     final name = itemNameController.text.trim();
-    final price = int.tryParse(priceController.text.trim()) ?? 0;
-    final qty = int.tryParse(quantityController.text.trim()) ?? 0;
     final date = DateFormat('dd/MM/yyyy').parse(dateController.text.trim());
 
     if (name.isEmpty ||
-        price <= 0 ||
-        quantityController.text.isEmpty ||
         dateController.text.isEmpty ||
         selectedUnit.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -74,7 +65,6 @@ class _AddEditStockPageState extends State<AddEditStockPage> {
       id: widget.product?.id,
       name: name,
       unit: selectedUnit,
-      sellingPrice: price,
       entryDate: date,
     );
 
@@ -121,24 +111,22 @@ class _AddEditStockPageState extends State<AddEditStockPage> {
                 },
               ),
               const SizedBox(height: 12),
-              CustomTextFieldGeneral(
-                title: "Selling Price",
-                controller: priceController,
-                keyboardType: TextInputType.number,
-              ),
-              const SizedBox(height: 12),
-              CustomTextFieldGeneral(
-                title: "Quantity",
-                controller: quantityController,
-                keyboardType: TextInputType.number,
-              ),
-              const SizedBox(height: 12),
               EntryDateTextField(controller: dateController),
               const Spacer(),
               BlocConsumer<StockBloc, StockState>(
                 listener: (context, state) {
                   state.maybeWhen(
                     success: (products, selected, _) {
+                      if (widget.isFromPurchase == true) {
+                        context.pushReplacementNamed(
+                          'record-purchase'
+                        );
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("Stock added"),
+                          ),
+                        );
+                      }
                       context.pop(context);
                       context.read<StockBloc>().add(const StockEvent.getAll());
                       ScaffoldMessenger.of(context).showSnackBar(

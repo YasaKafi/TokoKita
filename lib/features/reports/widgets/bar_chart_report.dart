@@ -1,24 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:intl/intl.dart';
 
-import '../../../data/models/report/report_model.dart';
+import '../../../data/models/report/bar_group_model.dart';
 import '../../../utils/theme.dart';
 
-
 class BarChartReport extends StatelessWidget {
-  final List<MonthlyReportModel> monthlyReports;
+  final List<BarGroupModel> barData;
 
-  const BarChartReport({super.key, required this.monthlyReports});
+  const BarChartReport({super.key, required this.barData});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 200,
       child: BarChart(
+
         BarChartData(
+          barTouchData: BarTouchData(
+            touchTooltipData: BarTouchTooltipData(
+              getTooltipColor: (_) => primaryColor,
+              getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                final item = barData[group.x];
+                final fullValue = NumberFormat.currency(locale: 'id', symbol: 'Rp', decimalDigits: 0)
+                    .format(item.grossProfit);
+
+                return BarTooltipItem(
+                  '${item.label}\n',
+                  const TextStyle(color: Colors.white, fontSize: 12),
+                  children: [
+                    TextSpan(
+                      text: fullValue,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                );
+              },
+
+            ),
+          ),
+          backgroundColor: lightGrey,
           maxY: _getMaxY(),
           barGroups: _buildBarGroups(),
-          borderData: FlBorderData(show: true, border: Border.all(color: grey, width: 1)),
+          borderData: FlBorderData(
+            show: true,
+            border: Border.all(color: grey, width: 1),
+          ),
           gridData: FlGridData(show: false),
           titlesData: FlTitlesData(
             leftTitles: AxisTitles(
@@ -35,10 +66,8 @@ class BarChartReport extends StatelessWidget {
                 showTitles: true,
                 getTitlesWidget: (value, meta) {
                   final index = value.toInt();
-                  if (index >= 0 && index < monthlyReports.length) {
-                    final report = monthlyReports[index];
-                    final formatted = '${report.month}/${report.year.toString().substring(2)}';
-                    return Text(formatted, style: const TextStyle(fontSize: 10));
+                  if (index >= 0 && index < barData.length) {
+                    return Text(barData[index].label, style: const TextStyle(fontSize: 10));
                   }
                   return const SizedBox.shrink();
                 },
@@ -52,17 +81,16 @@ class BarChartReport extends StatelessWidget {
     );
   }
 
-  /// Generate bar chart groups based on data
   List<BarChartGroupData> _buildBarGroups() {
-    return List.generate(monthlyReports.length, (i) {
-      final report = monthlyReports[i];
-      final isZero = report.grossProfit == 0;
+    return List.generate(barData.length, (i) {
+      final item = barData[i];
+      final isZero = item.grossProfit == 0;
 
       return BarChartGroupData(
         x: i,
         barRods: [
           BarChartRodData(
-            toY: report.grossProfit.toDouble(),
+            toY: item.grossProfit.toDouble(),
             color: isZero ? Colors.grey[400] : primaryColor,
             borderRadius: BorderRadius.circular(4),
             width: 16,
@@ -72,10 +100,9 @@ class BarChartReport extends StatelessWidget {
     });
   }
 
-  /// Format currency for Y axis
   String _formatCurrency(double value) {
     if (value >= 1000000) {
-      return 'Rp${(value / 1000000).toStringAsFixed(1)}M';
+      return 'Rp${(value / 1000000).toStringAsFixed(3)}M';
     } else if (value >= 1000) {
       return 'Rp${(value / 1000).toStringAsFixed(0)}k';
     } else {
@@ -84,9 +111,9 @@ class BarChartReport extends StatelessWidget {
   }
 
   double _getMaxY() {
-    if (monthlyReports.isEmpty) return 1000000;
+    if (barData.isEmpty) return 1000000;
 
-    final maxValue = monthlyReports
+    final maxValue = barData
         .map((e) => e.grossProfit.toDouble())
         .reduce((a, b) => a > b ? a : b);
 
@@ -94,9 +121,9 @@ class BarChartReport extends StatelessWidget {
   }
 
   double _calculateInterval() {
-    if (monthlyReports.isEmpty) return 100000;
+    if (barData.isEmpty) return 100000;
 
-    final max = monthlyReports
+    final max = barData
         .map((e) => e.grossProfit.toDouble())
         .reduce((a, b) => a > b ? a : b);
 

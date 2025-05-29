@@ -17,7 +17,6 @@ class ProductRepositoryImpl implements ProductRepository {
       return products;
     } catch (e) {
       // Handle error, possibly log it or rethrow
-      print('Error fetching products: $e');
       return [];
     }
   }

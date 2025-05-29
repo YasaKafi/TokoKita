@@ -19,13 +19,13 @@ void main() {
       // Arrange
       when(mockDatasource.getPurchaseBatches('fxR3VmEepJat8OAYKXoj')).thenAnswer((_) async => <Map<String, dynamic>>[
         {
-          'id': 'batch1', // ✅ tambahkan id
+          'id': 'batch1',
           'purchasePrice': 1000,
           'quantity': 10,
           'originalQuantity': 10,
         },
         {
-          'id': 'batch2', // ✅ tambahkan id
+          'id': 'batch2',
           'purchasePrice': 1500,
           'quantity': 20,
           'originalQuantity': 20,
@@ -46,7 +46,7 @@ void main() {
       // Arrange
       when(mockDatasource.getPurchaseBatches('fxR3VmEepJat8OAYKXoj')).thenAnswer((_) async => [
         {
-          'id': 'batch3', // ✅ tambahkan ID agar tidak error sebelum throw
+          'id': 'batch3',
           'purchasePrice': 1000,
           'quantity': 5,
           'originalQuantity': 5,

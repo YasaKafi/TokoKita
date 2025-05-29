@@ -59,10 +59,11 @@ class _StockPageState extends State<StockPage> {
                       name: product.name,
                       stock: currentStock?[product.id] ?? 0,
                       unit: product.unit,
-                      price: product.sellingPrice,
                       onPressedUpdate: () => context.pushNamed(
                         'add-edit-stock',
-                        extra: product,
+                        extra: {
+                          'product': product,
+                        },
                       ),
                       onPressedDelete: () => onShowAlertDialog(
                         context,

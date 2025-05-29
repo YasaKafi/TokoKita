@@ -24,7 +24,6 @@ mixin _$ProductModel {
   String? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get unit => throw _privateConstructorUsedError;
-  int get sellingPrice => throw _privateConstructorUsedError;
   DateTime get entryDate => throw _privateConstructorUsedError;
 
   /// Serializes this ProductModel to a JSON map.
@@ -44,13 +43,7 @@ abstract class $ProductModelCopyWith<$Res> {
     $Res Function(ProductModel) then,
   ) = _$ProductModelCopyWithImpl<$Res, ProductModel>;
   @useResult
-  $Res call({
-    String? id,
-    String name,
-    String unit,
-    int sellingPrice,
-    DateTime entryDate,
-  });
+  $Res call({String? id, String name, String unit, DateTime entryDate});
 }
 
 /// @nodoc
@@ -71,7 +64,6 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
     Object? id = freezed,
     Object? name = null,
     Object? unit = null,
-    Object? sellingPrice = null,
     Object? entryDate = null,
   }) {
     return _then(
@@ -91,11 +83,6 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
                     ? _value.unit
                     : unit // ignore: cast_nullable_to_non_nullable
                         as String,
-            sellingPrice:
-                null == sellingPrice
-                    ? _value.sellingPrice
-                    : sellingPrice // ignore: cast_nullable_to_non_nullable
-                        as int,
             entryDate:
                 null == entryDate
                     ? _value.entryDate
@@ -116,13 +103,7 @@ abstract class _$$ProductModelImplCopyWith<$Res>
   ) = __$$ProductModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({
-    String? id,
-    String name,
-    String unit,
-    int sellingPrice,
-    DateTime entryDate,
-  });
+  $Res call({String? id, String name, String unit, DateTime entryDate});
 }
 
 /// @nodoc
@@ -142,7 +123,6 @@ class __$$ProductModelImplCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = null,
     Object? unit = null,
-    Object? sellingPrice = null,
     Object? entryDate = null,
   }) {
     return _then(
@@ -162,11 +142,6 @@ class __$$ProductModelImplCopyWithImpl<$Res>
                 ? _value.unit
                 : unit // ignore: cast_nullable_to_non_nullable
                     as String,
-        sellingPrice:
-            null == sellingPrice
-                ? _value.sellingPrice
-                : sellingPrice // ignore: cast_nullable_to_non_nullable
-                    as int,
         entryDate:
             null == entryDate
                 ? _value.entryDate
@@ -184,7 +159,6 @@ class _$ProductModelImpl implements _ProductModel {
     this.id,
     required this.name,
     required this.unit,
-    required this.sellingPrice,
     required this.entryDate,
   });
 
@@ -198,13 +172,11 @@ class _$ProductModelImpl implements _ProductModel {
   @override
   final String unit;
   @override
-  final int sellingPrice;
-  @override
   final DateTime entryDate;
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, name: $name, unit: $unit, sellingPrice: $sellingPrice, entryDate: $entryDate)';
+    return 'ProductModel(id: $id, name: $name, unit: $unit, entryDate: $entryDate)';
   }
 
   @override
@@ -215,16 +187,13 @@ class _$ProductModelImpl implements _ProductModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.unit, unit) || other.unit == unit) &&
-            (identical(other.sellingPrice, sellingPrice) ||
-                other.sellingPrice == sellingPrice) &&
             (identical(other.entryDate, entryDate) ||
                 other.entryDate == entryDate));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, unit, sellingPrice, entryDate);
+  int get hashCode => Object.hash(runtimeType, id, name, unit, entryDate);
 
   /// Create a copy of ProductModel
   /// with the given fields replaced by the non-null parameter values.
@@ -245,7 +214,6 @@ abstract class _ProductModel implements ProductModel {
     final String? id,
     required final String name,
     required final String unit,
-    required final int sellingPrice,
     required final DateTime entryDate,
   }) = _$ProductModelImpl;
 
@@ -258,8 +226,6 @@ abstract class _ProductModel implements ProductModel {
   String get name;
   @override
   String get unit;
-  @override
-  int get sellingPrice;
   @override
   DateTime get entryDate;
 

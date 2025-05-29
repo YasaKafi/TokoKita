@@ -30,8 +30,11 @@ class AppRouter {
         name: 'add-edit-stock',
         path: '/add-edit-stock',
         builder: (context, state) {
-          final product = state.extra as ProductModel?;
-          return AddEditStockPage(product: product);
+          final extra = state.extra as Map<String, dynamic>?;
+          final isFromPurchase = extra?['isFromPurchase'] == 'true';
+          final product = extra?['product'] as ProductModel?;
+
+          return AddEditStockPage(product: product, isFromPurchase: isFromPurchase,);
         },
       ),
       GoRoute(

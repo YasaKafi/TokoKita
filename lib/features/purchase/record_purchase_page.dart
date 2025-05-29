@@ -36,6 +36,21 @@ class _RecordPurchasePageState extends State<RecordPurchasePage> {
   }
 
   void _submit() {
+
+    if (selectedProductId != null ) {
+      if (selectedProductName == null || selectedProductName!.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Please select a product")),
+        );
+        return;
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Please select a product")),
+      );
+      return;
+    }
+
     if (!_isFormValid()) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please fill all required fields")),
@@ -121,6 +136,7 @@ class _RecordPurchasePageState extends State<RecordPurchasePage> {
           child: Column(
             children: [
                ProductDropdown(
+                 isFromPurchase: true,
                 onSelected: (String productId, String productName, String unit) {
                   setState(() {
                     selectedProductId = productId;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:toko_kita/features/transactions/widgets/weekly_transactions_chart.dart';
 import 'package:toko_kita/utils/constant.dart';
 import '../../utils/theme.dart';
 import 'widgets/transaction_card.dart';
@@ -49,19 +48,7 @@ class TransactionsPage extends StatelessWidget {
                },
             ),
             const SizedBox(height: 32),
-            const Text("Weekly Transactions", style: txtSecondaryHeader),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                const Text('\$2,345', style: txtPrimaryTitle),
-                const SizedBox(width: 12),
-                Text('This Week ', style: txtSecondarySubTitle),
-                const Text('+12%', style: TextStyle(color: greenMedium, fontWeight: FontWeight.bold)),
-              ],
-            ),
-            const SizedBox(height: 16),
-            const WeeklyTransactionChart(),
-            const SizedBox(height: 32),
+
           ],
         ),
       ),

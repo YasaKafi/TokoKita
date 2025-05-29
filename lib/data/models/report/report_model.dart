@@ -12,6 +12,4 @@ class MonthlyReportModel with _$MonthlyReportModel {
     required int totalHPP,
     required int grossProfit,
   }) = _MonthlyReportModel;
-
-
 }

@@ -46,7 +46,6 @@ class ReportRepositoryImpl implements ReportRepository {
 
         aggregates[key] = updated;
       } catch (e) {
-        print('⚠️ Failed to simulate HPP for ${sale.productName}: $e');
 
         final updated = MonthlyReportModel(
           month: sale.saleDate.month,

@@ -80,7 +80,6 @@ class PurchaseDatasource {
     int totalHPP = 0;
 
     final totalOriginalQty = batches.fold<int>(0, (sum, batch) => sum + (batch['originalQuantity'] ?? 0) as int);
-    print('📦 Total originalQty for $productId: $totalOriginalQty');
 
     for (final batch in batches) {
       if (remaining == 0) break;
@@ -96,7 +95,6 @@ class PurchaseDatasource {
     }
 
     if (remaining > 0) {
-      print('🧮 But required quantity for simulation = $quantity');
       throw Exception("Insufficient batch quantity to simulate this sale (FIFO preview)");
     }
 

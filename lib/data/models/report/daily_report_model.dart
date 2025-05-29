@@ -10,5 +10,4 @@ class DailyReportModel with _$DailyReportModel {
     required int totalHPP,
     required int grossProfit,
   }) = _DailyReportModel;
-
 }

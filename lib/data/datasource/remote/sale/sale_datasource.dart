@@ -18,7 +18,7 @@ class SaleDatasource {
   Future<List<SaleModel>> getAllSales() async {
     final snapshot = await _firestore.collection(_collection).get();
     return snapshot.docs.map((doc) {
-      final data = doc.data()!;
+      final data = doc.data();
       return SaleModel.fromJson(data).copyWith(id: doc.id);
     }).toList();
   }

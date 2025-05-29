@@ -1,40 +1,41 @@
 import 'package:flutter/material.dart';
 
-import '../../../utils/theme.dart';
+import 'package:data_table_2/data_table_2.dart';
+import 'package:toko_kita/utils/theme.dart';
 
-class TopStockItem extends StatelessWidget {
-  final String image;
-  final String name;
-  final int quantity;
+class TopStockTable extends StatelessWidget {
+  final List<Map<String, dynamic>> items;
 
-  const TopStockItem({
-    super.key,
-    required this.image,
-    required this.name,
-    required this.quantity,
-  });
+  const TopStockTable({super.key, required this.items});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.asset(image, width: 48, height: 48, fit: BoxFit.cover),
-          ),
-          const SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(name, style: txtSecondaryTitle),
-              const SizedBox(height: 4),
-              Text('Quantity: $quantity', style: txtSecondarySubTitle.copyWith(color: secondaryColor)),
-            ],
-          ),
-        ],
-      ),
+    return DataTable2(
+      columnSpacing: 12,
+      horizontalMargin: 16,
+      minWidth: 300,
+      dataTextStyle: txtPrimarySubTitle.copyWith(color: blackColor),
+      headingTextStyle: txtPrimarySubTitle.copyWith(color: blackColor),
+      headingRowColor: WidgetStateProperty.all(grey),
+      columns: const [
+        DataColumn(label: Text('No.')),
+        DataColumn(label: Text('Product Name')),
+        DataColumn(label: Text('Current Quantity')),
+      ],
+
+      rows: items
+                .asMap()
+                .entries
+                .map(
+                  (entry) => DataRow(
+                cells: [
+                  DataCell(Text((entry.key + 1).toString())),
+                  DataCell(Text(entry.value['name'].toString())),
+                  DataCell(Text(entry.value['qty'].toString())),
+                ],
+              ),
+            )
+                .toList(),
     );
   }
 }

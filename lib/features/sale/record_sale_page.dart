@@ -64,13 +64,12 @@ class _RecordSalePageState extends State<RecordSalePage> {
     final now = DateTime.now();
     final fullDate = DateTime(dateInput.year, dateInput.month, dateInput.day, now.hour, now.minute, now.second);
 
-// NOTE: HPP = 0 untuk saat ini — logic FIFO akan kamu tambahkan nanti
     final sale = SaleModel(
       productId: selectedProductId!,
       productName: selectedProductName!,
       quantity: quantity,
       sellingPrice: sellingPrice,
-      hpp: 0, // TODO: hitung FIFO HPP nanti
+      hpp: 0,
       saleDate: fullDate,
       id: null,
     );
@@ -101,6 +100,7 @@ class _RecordSalePageState extends State<RecordSalePage> {
           child: Column(
             children: [
               ProductDropdown(
+                isFromPurchase: false,
                 onSelected: (productId, name, unit) {
                   setState(() {
                     selectedProductId = productId;
@@ -109,6 +109,9 @@ class _RecordSalePageState extends State<RecordSalePage> {
                   });
                 },
               ),
+
+              if (selectedUnit != null)
+              const SizedBox(height: 12),
               if (selectedUnit != null)
                 _UnitDropdown(selected: selectedUnit!),
               const SizedBox(height: 12),
